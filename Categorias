@@ -1,0 +1,342 @@
+R: _id: 'DIRECTING',
+  total: 469
+
+_id: 'FILM EDITING',
+  total: 450
+
+  _id: 'ACTOR IN A SUPPORTING ROLE',
+  total: 440
+
+  _id: 'ACTRESS IN A SUPPORTING ROLE',
+  total: 440
+}
+
+ _id: 'DOCUMENTARY (Short Subject)',
+  total: 378
+
+  _id: 'BEST PICTURE',
+  total: 371
+
+  _id: 'DOCUMENTARY (Feature)',
+  total: 345
+
+  _id: 'CINEMATOGRAPHY',
+  total: 338
+
+  _id: 'FOREIGN LANGUAGE FILM',
+  total: 315
+
+  _id: 'ART DIRECTION',
+  total: 307
+
+ _id: 'COSTUME DESIGN',
+  total: 295
+
+ _id: 'MUSIC (Original Score)',
+  total: 270
+
+ _id: 'SOUND',
+  total: 245
+
+  _id: 'ACTOR IN A LEADING ROLE',
+  total: 240
+
+  _id: 'ACTRESS IN A LEADING ROLE',
+  total: 240
+
+  _id: 'ACTRESS',
+  total: 236
+
+  _id: 'MUSIC (Original Song)',
+  total: 235
+
+  _id: 'ACTOR',
+  total: 232
+
+  _id: 'SHORT FILM (Live Action)',
+  total: 226
+
+  _id: 'SHORT FILM (Animated)',
+  total: 215
+
+  _id: 'MUSIC (Song)',
+  total: 215
+
+  _id: 'SOUND RECORDING',
+  total: 195
+
+  _id: 'SHORT SUBJECT (Cartoon)',
+  total: 169
+
+ _id: 'CINEMATOGRAPHY (Black-and-White)',
+  total: 161
+
+  _id: 'WRITING (Original Screenplay)',
+  total: 160
+
+  _id: 'VISUAL EFFECTS',
+  total: 155
+
+  _id: 'MUSIC (Music Score of a Dramatic or Comedy Picture)',
+  total: 148
+
+  _id: 'ART DIRECTION (Black-and-White)',
+  total: 138
+
+  _id: 'CINEMATOGRAPHY (Color)',
+  total: 135
+
+  _id: 'HONORARY AWARD',
+  total: 133
+
+  _id: 'MUSIC (Scoring of a Musical Picture)',
+  total: 127
+
+  _id: 'WRITING (Screenplay Written Directly for the Screen)',
+  total: 120
+
+  _id: 'ART DIRECTION (Color)',
+  total: 112
+
+  _id: 'WRITING (Adapted Screenplay)',
+  total: 110
+
+  _id: 'WRITING (Screenplay)',
+  total: 104
+
+  _id: 'OUTSTANDING PRODUCTION',
+  total: 102
+
+  _id: 'ANIMATED FEATURE FILM',
+  total: 99
+
+ _id: 'WRITING (Screenplay--based on material from another medium)',
+  total: 95
+
+  _id: 'SPECIAL EFFECTS',
+  total: 93
+
+  _id: 'BEST MOTION PICTURE',
+  total: 90
+
+  _id: 'SHORT SUBJECT (One-reel)',
+  total: 90
+
+  _id: 'MAKEUP',
+  total: 87
+
+ _id: 'SOUND EDITING',
+  total: 86
+
+ _id: 'SOUND MIXING',
+  total: 85
+
+  _id: 'SHORT SUBJECT (Two-reel)',
+  total: 81
+
+  _id: 'COSTUME DESIGN (Color)',
+  total: 77
+
+ _id: 'COSTUME DESIGN (Black-and-White)',
+  total: 77
+
+  _id: 'SHORT SUBJECT (Live Action)',
+  total: 68
+
+  _id: 'WRITING (Screenplay Based on Material from Another Medium)',
+  total: 65
+
+  _id: 'MUSIC (Scoring)',
+  total: 64
+
+  _id: 'WRITING (Story and Screenplay--written directly for the screen)',
+  total: 60
+
+  _id: 'PRODUCTION DESIGN',
+  total: 60
+
+  _id: 'SPECIAL AWARD',
+  total: 56
+
+  _id: 'WRITING (Screenplay Based on Material Previously Produced or Published)',
+  total: 55
+
+  _id: 'WRITING (Original Story)',
+  total: 52
+
+  _id: 'WRITING (Motion Picture Story)',
+  total: 50
+
+_id: 'SOUND EFFECTS EDITING',
+  total: 47
+
+  _id: 'MAKEUP AND HAIRSTYLING',
+  total: 46
+
+  _id: 'IRVING G. THALBERG MEMORIAL AWARD',
+  total: 45
+
+ _id: 'JEAN HERSHOLT HUMANITARIAN AWARD',
+  total: 44
+
+  _id: 'MUSIC (Original Dramatic Score)',
+  total: 41
+
+  _id: 'WRITING (Story and Screenplay)',
+  total: 35
+
+ _id: 'ASSISTANT DIRECTOR',
+  total: 35
+
+ _id: 'MUSIC (Scoring of Music--adaptation or treatment)',
+  total: 30
+
+ _id: 'OUTSTANDING MOTION PICTURE',
+  total: 30
+
+  _id: 'INTERNATIONAL FEATURE FILM',
+  total: 25
+
+  _id: 'WRITING (Original Motion Picture Story)',
+  total: 25
+
+ _id: 'DOCUMENTARY',
+  total: 25
+
+  _id: 'MUSIC (Song--Original for the Picture)',
+  total: 25
+
+  _id: 'DANCE DIRECTION',
+  total: 21
+
+  _id: 'MUSIC (Music Score of a Dramatic Picture)',
+  total: 20
+
+ _id: 'WRITING (Story and Screenplay--based on factual material or material not previously published or produced)',
+  total: 20
+
+_id: 'MUSIC (Music Score--substantially original)',
+  total: 20
+
+_id: 'WRITING (Adaptation)',
+  total: 17
+
+ _id: 'SPECIAL VISUAL EFFECTS',
+  total: 16
+
+ _id: 'SHORT SUBJECT (Comedy)',
+  total: 13
+
+  _id: 'SHORT SUBJECT (Novelty)',
+  total: 12
+
+  _id: 'WRITING',
+  total: 11
+
+  _id: 'MUSIC (Score of a Musical Picture--original or adaptation)',
+  total: 10
+
+  _id: 'MUSIC (Score of a Musical Picture--original or adaptation)',
+  total: 10
+
+ _id: 'MUSIC (Original Score--for a motion picture [not a musical])',
+  total: 10
+
+ _id: 'SOUND EFFECTS',
+  total: 10
+
+  _id: 'DOCUMENTARY FEATURE FILM',
+  total: 10
+
+  _id: 'MUSIC (Original Music Score)',
+  total: 10
+
+ _id: 'WRITING (Screenplay Adapted from Other Material)',
+  total: 10
+
+  _id: 'DOCUMENTARY SHORT FILM',
+  total: 10
+
+ _id: 'SHORT SUBJECT (Animated)',
+  total: 9
+
+ _id: 'MUSIC (Scoring: Original Song Score and Adaptation -or- Scoring: Adaptation)',
+  total: 9
+
+ _id: 'SPECIAL ACHIEVEMENT AWARD (Visual Effects)',
+  total: 9
+
+ _id: 'MUSIC (Original Song Score)',
+  total: 8
+
+_id: 'OUTSTANDING PICTURE',
+  total: 8
+
+ _id: 'MUSIC (Scoring: Adaptation and Original Song Score)',
+  total: 8
+
+ _id: 'MUSIC (Original Song Score and Its Adaptation or Adaptation Score)',
+  total: 6
+
+ _id: 'MUSIC (Original Song Score and Its Adaptation -or- Adaptation Score)',
+  total: 6
+
+ _id: 'SHORT SUBJECT (Color)',
+  total: 6
+
+  _id: 'WRITING (Screenplay--Original)',
+  total: 5
+
+_id: 'HONORARY FOREIGN LANGUAGE FILM AWARD',
+  total: 5
+
+ _id: 'WRITING (Screenplay--Adapted)',
+  total: 5
+
+ _id: 'WRITING (Story and Screenplay--based on material not previously published or produced)',
+  total: 5
+
+ _id: 'SPECIAL ACHIEVEMENT AWARD (Sound Effects Editing)',
+  total: 4
+
+ _id: 'SHORT FILM (Dramatic Live Action)',
+  total: 3
+
+ _id: 'SPECIAL ACHIEVEMENT AWARD',
+  total: 3
+
+ _id: 'WRITING (Title Writing)',
+  total: 3
+
+ _id: 'MUSIC (Adaptation Score)',
+  total: 3
+
+ _id: 'MUSIC (Original Song Score or Adaptation Score)',
+  total: 3
+
+ _id: 'UNIQUE AND ARTISTIC PICTURE',
+  total: 3
+
+  _id: 'DIRECTING (Dramatic Picture)',
+  total: 3
+
+  _id: 'ENGINEERING EFFECTS',
+  total: 3
+
+  _id: 'DIRECTING (Comedy Picture)',
+  total: 2
+
+ _id: 'SPECIAL FOREIGN LANGUAGE FILM AWARD',
+  total: 2
+
+  _id: 'GORDON E. SAWYER AWARD',
+  total: 1
+
+ _id: 'SPECIAL ACHIEVEMENT AWARD (Sound Effects)',
+  total: 1
+
+  _id: 'AWARD OF COMMENDATION',
+  total: 1
+
+  _id: 'SPECIAL ACHIEVEMENT AWARD (Sound Editing)',
+  total: 1
