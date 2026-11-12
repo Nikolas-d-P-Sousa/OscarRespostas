@@ -87,6 +87,7 @@ blablabla...
 ## Nível 2: Explorando Categorias
 
 **2.1** Quantas indicações existem para cada categoria? Agrupe por categoria e ordene da mais frequente para a menos frequente.
+
 R: _id: 'DIRECTING' total: 469
 
   _id: 'SPECIAL ACHIEVEMENT AWARD (Sound Editing)' total: 1
