@@ -59,7 +59,7 @@ db.oscar.find().sort({ano_cerimonia : 1}).limit(1)
 
 **1.4** Qual foi o último ano de cerimônia registrado na base?
 
-R:2024
+R: 2024
 
 ```
 db.oscar.find().sort({ano_cerimonia : -1}).limit(1)
@@ -87,11 +87,9 @@ blablabla...
 ## Nível 2: Explorando Categorias
 
 **2.1** Quantas indicações existem para cada categoria? Agrupe por categoria e ordene da mais frequente para a menos frequente.
-R: _id: 'DIRECTING',
-  total: 469
-...
-  _id: 'SPECIAL ACHIEVEMENT AWARD (Sound Editing)',
-  total: 1
+R: _id: 'DIRECTING' total: 469
+
+  _id: 'SPECIAL ACHIEVEMENT AWARD (Sound Editing)' total: 1
 
 O resto da resposta está no arquivo "Categorias"
 
