@@ -1,165 +1,442 @@
+@ -1,326 +0,0 @@
+# Oscar - Exercícios MongoDB
+
+Bem-vindo à base de dados do **Oscar**!
+
+O Oscar é a premiação mais prestigiada do cinema mundial, realizada anualmente desde 1929 pela Academia de Artes e Ciências Cinematográficas. Nesta base de dados, você encontrará registros históricos de indicados e vencedores de diversas categorias ao longo de quase 100 anos de história do cinema.
+
+Nestes exercícios, você vai explorar o banco de dados MongoDB do Oscar e responder perguntas que revelam insights fascinantes sobre a história do cinema, tendências de premiação, e momentos marcantes da indústria cinematográfica.
+
+## Dicas Gerais
+
+- **Conversão de Dados**: Use `$toInt`, `$toBool` para converter tipos
+- **Arrays**: Use `$addToSet` para valores únicos
+- **Datas**: Use `$year` para extrair o ano de campos de data
+- **Performance**: Para queries complexas, considere criar índices em campos frequentemente consultados
+- **Boa prática**: Sempre teste com `.limit(5)` antes de executar queries que retornam muitos resultados
+
+---
+
+## Avaliação
+
+- **Nível 1-4**: Operações básicas e queries simples
+- **Nível 5-8**: Agregações e análise de dados
+- **Nível 9-11**: Queries complexas e pensamento analítico
+- **Nível 12-14**: Expertise avançada e pensamento estratégico
+
+**Objetivo de aprendizado**: Ao completar todos os níveis, você será capaz de trabalhar com bases de dados históricas complexas, realizar análises estatísticas sofisticadas e extrair insights valiosos de grandes volumes de dados.
+
+---
+
 ## Nível 1: Primeiros Passos
 
 ### Conhecendo a Base de Dados
 
-**1.1** Quantos registros existem na tabela de indicados ao Oscar?
-
-Exemplo de resposta: 
+**1.1** Quantos registros existem na coleção de indicados ao Oscar?
 
 R: 10889 registros
 
-```sql
-SELECT COUNT(*) FROM oscar_indicados;
+```javascript
+db.oscar.countDocuments();
 ```
 
-**1.2.1** Quais são as diferentes categorias de premiação que existem no banco de dados? Liste todas as categorias únicas.
+**1.2** Quais são as diferentes categorias de premiação que existem no banco de dados? Liste todas as categorias únicas.
 
-Exemplo de resposta:
+R: 115
 
-R:
-```ACTOR
-  'ACTOR',
-  'ACTOR IN A LEADING ROLE',
-  'ACTOR IN A SUPPORTING ROLE',
-  'ACTRESS',
-  'ACTRESS IN A LEADING ROLE',
-  'ACTRESS IN A SUPPORTING ROLE',
-  'ANIMATED FEATURE FILM',
-  'ART DIRECTION',
-  'ART DIRECTION (Black-and-White)',
-  'ART DIRECTION (Color)',
-  'ASSISTANT DIRECTOR',
-  'AWARD OF COMMENDATION',
-  'BEST MOTION PICTURE',
-  'BEST PICTURE',
-  'CINEMATOGRAPHY',
-  'CINEMATOGRAPHY (Black-and-White)',
-  'CINEMATOGRAPHY (Color)',
-  'COSTUME DESIGN',
-  'COSTUME DESIGN (Black-and-White)',
-  'COSTUME DESIGN (Color)',
-  'DANCE DIRECTION',
-  'DIRECTING',
-  'DIRECTING (Comedy Picture)',
-  'DIRECTING (Dramatic Picture)',
-  'DOCUMENTARY',
-  'DOCUMENTARY (Feature)',
-  'DOCUMENTARY (Short Subject)',
-  'DOCUMENTARY FEATURE FILM',
-  'DOCUMENTARY SHORT FILM',
-  'ENGINEERING EFFECTS',
-  'FILM EDITING',
-  'FOREIGN LANGUAGE FILM',
-  'GORDON E. SAWYER AWARD',
-  'HONORARY AWARD',
-  'HONORARY FOREIGN LANGUAGE FILM AWARD',
-  'INTERNATIONAL FEATURE FILM',
-  'IRVING G. THALBERG MEMORIAL AWARD',
-  'JEAN HERSHOLT HUMANITARIAN AWARD',
-  'MAKEUP',
-  'MAKEUP AND HAIRSTYLING',
-  'MUSIC (Adaptation Score)',
-  'MUSIC (Music Score of a Dramatic Picture)',
-  'MUSIC (Music Score of a Dramatic or Comedy Picture)',
-  'MUSIC (Music Score--substantially original)',
-  'MUSIC (Original Dramatic Score)',
-  'MUSIC (Original Music Score)',
-  'MUSIC (Original Musical or Comedy Score)',
-  'MUSIC (Original Score)',
-  'MUSIC (Original Score--for a motion picture [not a musical])',
-  'MUSIC (Original Song Score and Its Adaptation -or- Adaptation Score)',
-  'MUSIC (Original Song Score and Its Adaptation or Adaptation Score)',
-  'MUSIC (Original Song Score or Adaptation Score)',
-  'MUSIC (Original Song Score)',
-  'MUSIC (Original Song)',
-  'MUSIC (Score of a Musical Picture--original or adaptation)',
-  'MUSIC (Scoring of Music--adaptation or treatment)',
-  'MUSIC (Scoring of a Musical Picture)',
-  'MUSIC (Scoring)',
-  'MUSIC (Scoring: Adaptation and Original Song Score)',
-  'MUSIC (Scoring: Original Song Score and Adaptation -or- Scoring: Adaptation)',
-  'MUSIC (Song)',
-  'MUSIC (Song--Original for the Picture)',
-  'OUTSTANDING MOTION PICTURE',
-  'OUTSTANDING PICTURE',
-  'OUTSTANDING PRODUCTION',
-  'PRODUCTION DESIGN',
-  'SHORT FILM (Animated)',
-  'SHORT FILM (Dramatic Live Action)',
-  'SHORT FILM (Live Action)',
-  'SHORT SUBJECT (Animated)',
-  'SHORT SUBJECT (Cartoon)',
-  'SHORT SUBJECT (Color)',
-  'SHORT SUBJECT (Comedy)',
-  'SHORT SUBJECT (Live Action)',
-  'SHORT SUBJECT (Novelty)',
-  'SHORT SUBJECT (One-reel)',
-  'SHORT SUBJECT (Two-reel)',
-  'SOUND',
-  'SOUND EDITING',
-  'SOUND EFFECTS',
-  'SOUND EFFECTS EDITING',
-  'SOUND MIXING',
-  'SOUND RECORDING',
-  'SPECIAL ACHIEVEMENT AWARD',
-  'SPECIAL ACHIEVEMENT AWARD (Sound Editing)',
-  'SPECIAL ACHIEVEMENT AWARD (Sound Effects Editing)',
-  'SPECIAL ACHIEVEMENT AWARD (Sound Effects)',
-  'SPECIAL ACHIEVEMENT AWARD (Visual Effects)',
-  'SPECIAL AWARD',
-  'SPECIAL EFFECTS',
-  'SPECIAL FOREIGN LANGUAGE FILM AWARD',
-  'SPECIAL VISUAL EFFECTS',
-  'UNIQUE AND ARTISTIC PICTURE',
-  'VISUAL EFFECTS',
-  'WRITING',
-  'WRITING (Adaptation)',
-  'WRITING (Adapted Screenplay)',
-  'WRITING (Motion Picture Story)',
-  'WRITING (Original Motion Picture Story)',
-  'WRITING (Original Screenplay)',
-
-```sql
-SELECT DISTINCT categoria FROM oscar_indicados;
-```
-
-**1.2.2** **Quantas** categorias únicas existem?
-
-R: 92 registros
-
-Exemplo de resposta:
-
-```sql
-SELECT COUNT(DISTINCT categoria) FROM oscar_indicados;
+```javascript
+db.oscar.distinct("categoria");
 ```
 
 **1.3** Qual foi o primeiro ano de cerimônia do Oscar registrado na base?
 
 R: 1928
 
+```
+db.oscar.find().sort({ano_cerimonia : 1}).limit(1)
+``` 
+
+
 **1.4** Qual foi o último ano de cerimônia registrado na base?
 
-R: 2024
+R:2024
+
+```
+db.oscar.find().sort({ano_cerimonia : -1}).limit(1)
+``` 
 
 **1.5** Quantas cerimônias do Oscar estão registradas no total?
 
 R: 96
 
-**1.6** Atualize os registros da tabela com os dados do Oscar 2025 e 2026 (pesquise os vencedores e adicione-os).
+```
+db.oscar.distinct("ano_cerimonia").length
+``` 
 
+**1.6** Atualize os registros da coleção com os dados do Oscar 2025 e 2026 (pesquise os indicados e adicione-os).
+R: Não quero
 ---
+
+```
+db.oscar.insertMany([
+{ano_filmagem:2023, ano_cerimonia: 2025, cerimonia: 97, categoria:ACTRESS IN LEADING ROLE, nome_do_indicado: Mikey Maddison, nome_do_filme:"Anora", vencedor:1},
+blablabla...
+])
+``` 
 
 ## Nível 2: Explorando Categorias
 
 **2.1** Quantas indicações existem para cada categoria? Agrupe por categoria e ordene da mais frequente para a menos frequente.
+R: _id: 'DIRECTING',
+  total: 469
+
+_id: 'FILM EDITING',
+  total: 450
+
+  _id: 'ACTOR IN A SUPPORTING ROLE',
+  total: 440
+
+  _id: 'ACTRESS IN A SUPPORTING ROLE',
+  total: 440
+}
+
+ _id: 'DOCUMENTARY (Short Subject)',
+  total: 378
+
+  _id: 'BEST PICTURE',
+  total: 371
+
+  _id: 'DOCUMENTARY (Feature)',
+  total: 345
+
+  _id: 'CINEMATOGRAPHY',
+  total: 338
+
+  _id: 'FOREIGN LANGUAGE FILM',
+  total: 315
+
+  _id: 'ART DIRECTION',
+  total: 307
+
+ _id: 'COSTUME DESIGN',
+  total: 295
+
+ _id: 'MUSIC (Original Score)',
+  total: 270
+
+ _id: 'SOUND',
+  total: 245
+
+  _id: 'ACTOR IN A LEADING ROLE',
+  total: 240
+
+  _id: 'ACTRESS IN A LEADING ROLE',
+  total: 240
+
+  _id: 'ACTRESS',
+  total: 236
+
+  _id: 'MUSIC (Original Song)',
+  total: 235
+
+  _id: 'ACTOR',
+  total: 232
+
+  _id: 'SHORT FILM (Live Action)',
+  total: 226
+
+  _id: 'SHORT FILM (Animated)',
+  total: 215
+
+  _id: 'MUSIC (Song)',
+  total: 215
+
+  _id: 'SOUND RECORDING',
+  total: 195
+
+  _id: 'SHORT SUBJECT (Cartoon)',
+  total: 169
+
+ _id: 'CINEMATOGRAPHY (Black-and-White)',
+  total: 161
+
+  _id: 'WRITING (Original Screenplay)',
+  total: 160
+
+  _id: 'VISUAL EFFECTS',
+  total: 155
+
+  _id: 'MUSIC (Music Score of a Dramatic or Comedy Picture)',
+  total: 148
+
+  _id: 'ART DIRECTION (Black-and-White)',
+  total: 138
+
+  _id: 'CINEMATOGRAPHY (Color)',
+  total: 135
+
+  _id: 'HONORARY AWARD',
+  total: 133
+
+  _id: 'MUSIC (Scoring of a Musical Picture)',
+  total: 127
+
+  _id: 'WRITING (Screenplay Written Directly for the Screen)',
+  total: 120
+
+  _id: 'ART DIRECTION (Color)',
+  total: 112
+
+  _id: 'WRITING (Adapted Screenplay)',
+  total: 110
+
+  _id: 'WRITING (Screenplay)',
+  total: 104
+
+  _id: 'OUTSTANDING PRODUCTION',
+  total: 102
+
+  _id: 'ANIMATED FEATURE FILM',
+  total: 99
+
+ _id: 'WRITING (Screenplay--based on material from another medium)',
+  total: 95
+
+  _id: 'SPECIAL EFFECTS',
+  total: 93
+
+  _id: 'BEST MOTION PICTURE',
+  total: 90
+
+  _id: 'SHORT SUBJECT (One-reel)',
+  total: 90
+
+  _id: 'MAKEUP',
+  total: 87
+
+ _id: 'SOUND EDITING',
+  total: 86
+
+ _id: 'SOUND MIXING',
+  total: 85
+
+  _id: 'SHORT SUBJECT (Two-reel)',
+  total: 81
+
+  _id: 'COSTUME DESIGN (Color)',
+  total: 77
+
+ _id: 'COSTUME DESIGN (Black-and-White)',
+  total: 77
+
+  _id: 'SHORT SUBJECT (Live Action)',
+  total: 68
+
+  _id: 'WRITING (Screenplay Based on Material from Another Medium)',
+  total: 65
+
+  _id: 'MUSIC (Scoring)',
+  total: 64
+
+  _id: 'WRITING (Story and Screenplay--written directly for the screen)',
+  total: 60
+
+  _id: 'PRODUCTION DESIGN',
+  total: 60
+
+  _id: 'SPECIAL AWARD',
+  total: 56
+
+  _id: 'WRITING (Screenplay Based on Material Previously Produced or Published)',
+  total: 55
+
+  _id: 'WRITING (Original Story)',
+  total: 52
+
+  _id: 'WRITING (Motion Picture Story)',
+  total: 50
+
+_id: 'SOUND EFFECTS EDITING',
+  total: 47
+
+  _id: 'MAKEUP AND HAIRSTYLING',
+  total: 46
+
+  _id: 'IRVING G. THALBERG MEMORIAL AWARD',
+  total: 45
+
+ _id: 'JEAN HERSHOLT HUMANITARIAN AWARD',
+  total: 44
+
+  _id: 'MUSIC (Original Dramatic Score)',
+  total: 41
+
+  _id: 'WRITING (Story and Screenplay)',
+  total: 35
+
+ _id: 'ASSISTANT DIRECTOR',
+  total: 35
+
+ _id: 'MUSIC (Scoring of Music--adaptation or treatment)',
+  total: 30
+
+ _id: 'OUTSTANDING MOTION PICTURE',
+  total: 30
+
+  _id: 'INTERNATIONAL FEATURE FILM',
+  total: 25
+
+  _id: 'WRITING (Original Motion Picture Story)',
+  total: 25
+
+ _id: 'DOCUMENTARY',
+  total: 25
+
+  _id: 'MUSIC (Song--Original for the Picture)',
+  total: 25
+
+  _id: 'DANCE DIRECTION',
+  total: 21
+
+  _id: 'MUSIC (Music Score of a Dramatic Picture)',
+  total: 20
+
+ _id: 'WRITING (Story and Screenplay--based on factual material or material not previously published or produced)',
+  total: 20
+
+_id: 'MUSIC (Music Score--substantially original)',
+  total: 20
+
+_id: 'WRITING (Adaptation)',
+  total: 17
+
+ _id: 'SPECIAL VISUAL EFFECTS',
+  total: 16
+
+ _id: 'SHORT SUBJECT (Comedy)',
+  total: 13
+
+  _id: 'SHORT SUBJECT (Novelty)',
+  total: 12
+
+  _id: 'WRITING',
+  total: 11
+
+  _id: 'MUSIC (Score of a Musical Picture--original or adaptation)',
+  total: 10
+
+  _id: 'MUSIC (Score of a Musical Picture--original or adaptation)',
+  total: 10
+
+ _id: 'MUSIC (Original Score--for a motion picture [not a musical])',
+  total: 10
+
+ _id: 'SOUND EFFECTS',
+  total: 10
+
+  _id: 'DOCUMENTARY FEATURE FILM',
+  total: 10
+
+  _id: 'MUSIC (Original Music Score)',
+  total: 10
+
+ _id: 'WRITING (Screenplay Adapted from Other Material)',
+  total: 10
+
+  _id: 'DOCUMENTARY SHORT FILM',
+  total: 10
+
+ _id: 'SHORT SUBJECT (Animated)',
+  total: 9
+
+ _id: 'MUSIC (Scoring: Original Song Score and Adaptation -or- Scoring: Adaptation)',
+  total: 9
+
+ _id: 'SPECIAL ACHIEVEMENT AWARD (Visual Effects)',
+  total: 9
+
+ _id: 'MUSIC (Original Song Score)',
+  total: 8
+
+_id: 'OUTSTANDING PICTURE',
+  total: 8
+
+ _id: 'MUSIC (Scoring: Adaptation and Original Song Score)',
+  total: 8
+
+ _id: 'MUSIC (Original Song Score and Its Adaptation or Adaptation Score)',
+  total: 6
+
+ _id: 'MUSIC (Original Song Score and Its Adaptation -or- Adaptation Score)',
+  total: 6
+
+ _id: 'SHORT SUBJECT (Color)',
+  total: 6
+
+  _id: 'WRITING (Screenplay--Original)',
+  total: 5
+
+_id: 'HONORARY FOREIGN LANGUAGE FILM AWARD',
+  total: 5
+
+ _id: 'WRITING (Screenplay--Adapted)',
+  total: 5
+
+ _id: 'WRITING (Story and Screenplay--based on material not previously published or produced)',
+  total: 5
+
+ _id: 'SPECIAL ACHIEVEMENT AWARD (Sound Effects Editing)',
+  total: 4
+
+ _id: 'SHORT FILM (Dramatic Live Action)',
+  total: 3
+
+ _id: 'SPECIAL ACHIEVEMENT AWARD',
+  total: 3
+
+ _id: 'WRITING (Title Writing)',
+  total: 3
+
+ _id: 'MUSIC (Adaptation Score)',
+  total: 3
+
+ _id: 'MUSIC (Original Song Score or Adaptation Score)',
+  total: 3
+
+ _id: 'UNIQUE AND ARTISTIC PICTURE',
+  total: 3
+
+  _id: 'DIRECTING (Dramatic Picture)',
+  total: 3
+
+  _id: 'ENGINEERING EFFECTS',
+  total: 3
+
+  _id: 'DIRECTING (Comedy Picture)',
+  total: 2
+
+ _id: 'SPECIAL FOREIGN LANGUAGE FILM AWARD',
+  total: 2
+
+  _id: 'GORDON E. SAWYER AWARD',
+  total: 1
+
+ _id: 'SPECIAL ACHIEVEMENT AWARD (Sound Effects)',
+  total: 1
+
+  _id: 'AWARD OF COMMENDATION',
+  total: 1
+
+  _id: 'SPECIAL ACHIEVEMENT AWARD (Sound Editing)',
+  total: 1
+
+([{$group: {_id: "$categoria", total:{$sum: 1}}},{$sort:{total: -1}}])
 
 **2.2** Qual categoria teve mais indicações ao longo da história do Oscar?
 
 **2.3** Qual categoria teve menos indicações ao longo da história?
 
 **2.4** A partir de que ano a categoria "ACTRESS" deixou de existir? (Dica: procure a última cerimônia com essa categoria)
-
-R: 1976 - Glenda Jackson pelo filme "Hedda"
 
 **2.5** Quais categorias existiam na primeira cerimônia (1928) e não existem mais hoje?
 
@@ -183,23 +460,7 @@ R: 1976 - Glenda Jackson pelo filme "Hedda"
 
 **3.5** Quantas vezes Viola Davis foi indicada ao Oscar?
 
-R: 4
-
-```sql
-SELECT COUNT(*) FROM indicados_ao_oscar
-WHERE nome_indicado LIKE "%Viola Davis%"
-```
-
 **3.6** Quantos Oscars Viola Davis ganhou?
-
-R: 1
-
-```sql
-SELECT COUNT(*) FROM indicados_ao_oscar
-WHERE nome_indicado LIKE "%Viola Davis%"
-AND 
-vencedor = true;
-```
 
 **3.7** Por quais filmes Viola Davis foi indicada?
 
@@ -279,7 +540,7 @@ vencedor = true;
 
 **7.1** No campo "vencedor", altere todos os valores "true" (string) para true (booleano) e "false" (string) para false (booleano).
 
-**7.2** Inclua no banco 3 filmes que nunca foram nomeados ao Oscar, mas que você acha que merecem. Use dados fictícios, mas realistas.
+**7.2** Inclua no banco 3 filmes que nunca foram nomeados ao Oscar, mas que você acha que merecem. Use dados fictícios mas realistas.
 
 **7.3** Adicione uma nova categoria chamada "BEST INTERNATIONAL FEATURE FILM" com alguns vencedores recentes (2020-2024).
 
@@ -302,6 +563,7 @@ vencedor = true;
 **8.5** Calcule a taxa de crescimento de indicações comparando a primeira década com a última.
 
 ---
+
 
 ## Nível 9: Questões Históricas e Sociais
 
@@ -416,3 +678,9 @@ Você trabalha para um site de apostas e precisa de estatísticas.
    - Ator/atriz mais indicado(a)
    - Década com mais premiações
    - Número de categorias únicas
+
+---
+
+
+
+Bons estudos!
